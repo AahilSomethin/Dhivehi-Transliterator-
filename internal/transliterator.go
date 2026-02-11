@@ -10,27 +10,54 @@ func Transliterate(input string) string {
 
 	i := 0
 	for i < len(runes) {
-		if i+1 < len(runes) {
-			pair := string(runes[i : i+2])
-			if latin, ok := AkuruFili[pair]; ok {
-				result.WriteString(latin)
-				i += 2
-				continue
-			}
-		}
+		r := runes[i]
 
-		char := string(runes[i])
-		if latin, ok := Akuru[char]; ok {
-			result.WriteString(latin)
+		if akuru, ok := Akuru[r]; ok {
+			if i+1 < len(runes) {
+				next := runes[i+1]
+
+				if fili, ok := Fili[next]; ok {
+					result.WriteString(akuru)
+					result.WriteString(fili)
+					i += 2
+					continue
+				}
+
+				if next == Sukun {
+					if override, ok := SukunOverrides[r]; ok {
+						result.WriteString(override)
+					} else {
+						result.WriteString(akuru)
+					}
+					i += 2
+					continue
+				}
+			}
+
+			if r == Noonu && i != 0 && i < len(runes)-1 {
+				_, ok1 := Fili[runes[i-1]]
+				_, ok2 := Akuru[runes[i+1]]
+				if ok1 && ok2 {
+					result.WriteRune(Noonu)
+					i++
+					continue
+				}
+			}
+			if name, ok := AkuruNames[r]; ok {
+				result.WriteString(name)
+			}
+
 			i++
 			continue
-		} else {
-			if char == "ނ" {
-				// handle hus noonu - only in middle of a word
-			}
 		}
 
-		result.WriteRune(runes[i])
+		if nishaan, ok := Nishaan[r]; ok {
+			result.WriteRune(nishaan)
+			i++
+			continue
+		}
+
+		result.WriteRune(r)
 		i++
 	}
 
