@@ -19,10 +19,15 @@ func Transliterate(input string) string {
 			}
 		}
 
-		if latin, ok := Akuru[string(runes[i])]; ok {
+		char := string(runes[i])
+		if latin, ok := Akuru[char]; ok {
 			result.WriteString(latin)
 			i++
 			continue
+		} else {
+			if char == "ނ" {
+				// handle hus noonu
+			}
 		}
 
 		result.WriteRune(runes[i])
