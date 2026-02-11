@@ -1,62 +1,91 @@
 package transliterator
 
 func Transliterate(input string) string {
+	runes := []rune(input)
 	var output []rune
 	state := State{}
 
-	for _, r := range []rune(input) {
+	// flush writes the buffered consonant to output if it hasn't been paired with a vowel
+	flush := func() {
+		if state.HasPendingConsonant {
+			if state.LastLatin != "" {
+				output = append(output, []rune(state.LastLatin)...)
+			}
+			state.HasPendingConsonant = false
+		}
+	}
 
-		// Whitespace resets state
+	for i := 0; i < len(runes); i++ {
+		r := runes[i]
+
+		var nextRune rune
+		if i+1 < len(runes) {
+			nextRune = runes[i+1]
+		}
+
+		// Whitespace
 		if IsWhitespace(r) {
+			flush()
 			state = State{}
 			output = append(output, r)
 			continue
 		}
 
-		// ✅ Leading vowel (no pending consonant)
-		if IsVowel(r) && !state.HasPendingConsonant {
-			output = append(output, []rune(VowelMap[r])...)
-			continue
-		}
 
-		// Vowel sign (fili) after consonant
-		if IsVowel(r) && state.HasPendingConsonant {
-
-			// Special rule: ހ + short vowel → ha
-			if state.LastRune == 'ހ' {
-				output = output[:len(output)-len([]rune(state.LastLatin))]
-				output = append(output, []rune("ha")...)
-			} else if state.LastRune == 'އ' {
-				latin := romanizeAlif(state.PositionInWord-1, true, false)
-				output = append(output, []rune(latin+VowelMap[r])...)
-			} else {
-				output = output[:len(output)-len([]rune(state.LastLatin))]
-				combined := state.LastLatin + VowelMap[r]
-				output = append(output, []rune(combined)...)
-			}
-
-			state.HasPendingConsonant = false
-			continue
-		}
-
-		// Sukūn: suppress inherent vowel
+		// Sukūn 
 		if IsSukun(r) {
-			state.HasPendingConsonant = false
+			if state.HasPendingConsonant {
+				if state.LastRune == 'ށ' {
+					// ށ + sukun → h
+					output = append(output, 'h')
+				} else {
+					// Normal dead consonant
+					output = append(output, []rune(state.LastLatin)...)
+				}
+				state.HasPendingConsonant = false
+				state.LastLatin = ""
+			}
 			continue
 		}
 
-		// Consonant handling
+
+		// Vowels (fili)
+
+		if IsVowel(r) {
+			if state.HasPendingConsonant {
+				var latin string
+				if state.LastRune == 'އ' {
+					latin = romanizeAlif(state.PositionInWord-1, true, false)
+				} else {
+					latin = state.LastLatin
+				}
+
+				combined := latin + VowelMap[r]
+				output = append(output, []rune(combined)...)
+				state.HasPendingConsonant = false
+			} else {
+				// Leading vowel
+				output = append(output, []rune(VowelMap[r])...)
+			}
+			continue
+		}
+
+
+		// Consonants
+
 		if IsConsonant(r) {
+			flush()
 
 			var latin string
-
 			switch r {
 			case 'ށ':
 				latin = romanizeSha(false)
 			case 'ނ':
-				latin = romanizeNu(state.PositionInWord, false)
+				latin = romanizeNu(nextRune)
 			case 'އ':
-				latin = "" // defer Alif
+				latin = "" // Alifu carrier
+			case 'ޏ':
+				latin = "gn"
 			default:
 				latin = ConsonantMap[r]
 			}
@@ -65,20 +94,19 @@ func Transliterate(input string) string {
 			state.LastLatin = latin
 			state.HasPendingConsonant = true
 			state.PositionInWord++
-
-			if latin != "" {
-				output = append(output, []rune(latin)...)
-			}
 			continue
 		}
 
 		// Fallback
+		flush()
 		output = append(output, r)
 	}
 
-	// ✅ Final Alif → h
-	if state.LastRune == 'އ' {
+	// Final flush
+	if state.LastRune == 'އ' && state.HasPendingConsonant {
 		output = append(output, 'h')
+	} else {
+		flush()
 	}
 
 	return string(output)

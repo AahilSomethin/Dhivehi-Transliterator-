@@ -9,8 +9,8 @@ func TestTransliteration(t *testing.T) {
 	}{
 		{"ދިވެހި", "dhivehi"},
 		{"ބަސް", "bas"},
-		{"ހުނދު", "haṁdu"},
-		{"ޮބްއ", "boh"},
+		{"ހުނދު", "hundhu"}, 
+		{"ބޮށް", "boh"},
 	}
 
 	for _, tt := range tests {
@@ -20,4 +20,5 @@ func TestTransliteration(t *testing.T) {
 				tt.input, result, tt.expected)
 		}
 	}
+	
 }
