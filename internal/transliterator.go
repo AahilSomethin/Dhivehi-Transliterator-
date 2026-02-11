@@ -26,7 +26,7 @@ func Transliterate(input string) string {
 			continue
 		} else {
 			if char == "ނ" {
-				// handle hus noonu
+				// handle hus noonu - only in middle of a word
 			}
 		}
 
