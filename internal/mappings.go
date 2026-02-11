@@ -11,7 +11,7 @@ var AkuruFili = map[string]string{
 	"ހެ": "he",
 	"ހޭ": "hey",
 	"ހޮ": "ho",
-	"ހޯ": "hou",
+	"ހޯ": "hoa",
 
 	"ށަ": "sha",
 	"ށާ": "shaa",
@@ -23,7 +23,7 @@ var AkuruFili = map[string]string{
 	"ށެ": "she",
 	"ށޭ": "shey",
 	"ށޮ": "sho",
-	"ށޯ": "shou",
+	"ށޯ": "shoa",
 
 	"ނަ": "na",
 	"ނާ": "naa",
@@ -35,7 +35,7 @@ var AkuruFili = map[string]string{
 	"ނެ": "ne",
 	"ނޭ": "ney",
 	"ނޮ": "no",
-	"ނޯ": "nou",
+	"ނޯ": "noa",
 
 	"ރަ": "ra",
 	"ރާ": "raa",
@@ -47,7 +47,7 @@ var AkuruFili = map[string]string{
 	"ރެ": "re",
 	"ރޭ": "rey",
 	"ރޮ": "ro",
-	"ރޯ": "rou",
+	"ރޯ": "roa",
 
 	"ބަ": "ba",
 	"ބާ": "baa",
@@ -59,7 +59,7 @@ var AkuruFili = map[string]string{
 	"ބެ": "be",
 	"ބޭ": "bey",
 	"ބޮ": "bo",
-	"ބޯ": "bou",
+	"ބޯ": "boa",
 
 	"ޅަ": "lha",
 	"ޅާ": "lhaa",
@@ -71,7 +71,7 @@ var AkuruFili = map[string]string{
 	"ޅެ": "lhe",
 	"ޅޭ": "lhey",
 	"ޅޮ": "lho",
-	"ޅޯ": "lhou",
+	"ޅޯ": "lhoa",
 
 	"ކަ": "ka",
 	"ކާ": "kaa",
@@ -83,7 +83,7 @@ var AkuruFili = map[string]string{
 	"ކެ": "ke",
 	"ކޭ": "key",
 	"ކޮ": "ko",
-	"ކޯ": "kou",
+	"ކޯ": "koa",
 
 	"އަ": "a",
 	"އާ": "aa",
@@ -95,7 +95,7 @@ var AkuruFili = map[string]string{
 	"އެ": "e",
 	"އޭ": "ey",
 	"އޮ": "o",
-	"އޯ": "ou",
+	"އޯ": "oa",
 
 	"ވަ": "va",
 	"ވާ": "vaa",
@@ -107,7 +107,7 @@ var AkuruFili = map[string]string{
 	"ވެ": "ve",
 	"ވޭ": "vey",
 	"ވޮ": "vo",
-	"ވޯ": "vou",
+	"ވޯ": "voa",
 
 	"މަ": "ma",
 	"މާ": "maa",
@@ -119,7 +119,7 @@ var AkuruFili = map[string]string{
 	"މެ": "me",
 	"މޭ": "mey",
 	"މޮ": "mo",
-	"މޯ": "mou",
+	"މޯ": "moa",
 
 	"ފަ": "fa",
 	"ފާ": "faa",
@@ -131,7 +131,7 @@ var AkuruFili = map[string]string{
 	"ފެ": "fe",
 	"ފޭ": "fey",
 	"ފޮ": "fo",
-	"ފޯ": "fou",
+	"ފޯ": "foa",
 
 	"ދަ": "dha",
 	"ދާ": "dhaa",
@@ -143,7 +143,7 @@ var AkuruFili = map[string]string{
 	"ދެ": "dhe",
 	"ދޭ": "dhey",
 	"ދޮ": "dho",
-	"ދޯ": "dhou",
+	"ދޯ": "dhoa",
 
 	"ތަ": "tha",
 	"ތާ": "thaa",
@@ -155,7 +155,7 @@ var AkuruFili = map[string]string{
 	"ތެ": "the",
 	"ތޭ": "they",
 	"ތޮ": "tho",
-	"ތޯ": "thou",
+	"ތޯ": "thoa",
 
 	"ލަ": "la",
 	"ލާ": "laa",
@@ -167,7 +167,7 @@ var AkuruFili = map[string]string{
 	"ލެ": "le",
 	"ލޭ": "ley",
 	"ލޮ": "lo",
-	"ލޯ": "lou",
+	"ލޯ": "loa",
 
 	"ގަ": "ga",
 	"ގާ": "gaa",
@@ -179,7 +179,7 @@ var AkuruFili = map[string]string{
 	"ގެ": "ge",
 	"ގޭ": "gey",
 	"ގޮ": "go",
-	"ގޯ": "gou",
+	"ގޯ": "goa",
 
 	"ޏަ": "nya",  // could be "gna" or "nya"
 	"ޏާ": "nyaa", // could be "gnaa" or "nyaa"
@@ -191,7 +191,7 @@ var AkuruFili = map[string]string{
 	"ޏެ": "nye",  // could be "gne" or "nye"
 	"ޏޭ": "nyey", // could be "gney" or "nyey"
 	"ޏޮ": "nyo",  // could be "gno" or "nyo"
-	"ޏޯ": "nyou", // could be "gnou" or "nyou"
+	"ޏޯ": "nyoa", // could be "gnoa" or "nyoa"
 
 	"ސަ": "sa",
 	"ސާ": "saa",
@@ -203,7 +203,7 @@ var AkuruFili = map[string]string{
 	"ސެ": "se",
 	"ސޭ": "sey",
 	"ސޮ": "so",
-	"ސޯ": "sou",
+	"ސޯ": "soa",
 
 	"ޑަ": "da",
 	"ޑާ": "daa",
@@ -215,7 +215,7 @@ var AkuruFili = map[string]string{
 	"ޑެ": "de",
 	"ޑޭ": "dey",
 	"ޑޮ": "do",
-	"ޑޯ": "dou",
+	"ޑޯ": "doa",
 
 	"ޒަ": "za",
 	"ޒާ": "zaa",
@@ -227,7 +227,7 @@ var AkuruFili = map[string]string{
 	"ޒެ": "ze",
 	"ޒޭ": "zey",
 	"ޒޮ": "zo",
-	"ޒޯ": "zou",
+	"ޒޯ": "zoa",
 
 	"ޓަ": "ta",
 	"ޓާ": "taa",
@@ -239,7 +239,7 @@ var AkuruFili = map[string]string{
 	"ޓެ": "te",
 	"ޓޭ": "tey",
 	"ޓޮ": "to",
-	"ޓޯ": "tou",
+	"ޓޯ": "toa",
 
 	"ޔަ": "ya",
 	"ޔާ": "yaa",
@@ -251,7 +251,7 @@ var AkuruFili = map[string]string{
 	"ޔެ": "ye",
 	"ޔޭ": "yey",
 	"ޔޮ": "yo",
-	"ޔޯ": "you",
+	"ޔޯ": "yoa",
 
 	"ޕަ": "pa",
 	"ޕާ": "paa",
@@ -263,7 +263,7 @@ var AkuruFili = map[string]string{
 	"ޕެ": "pe",
 	"ޕޭ": "pey",
 	"ޕޮ": "po",
-	"ޕޯ": "pou",
+	"ޕޯ": "poa",
 
 	"ޖަ": "ja",
 	"ޖާ": "jaa",
@@ -275,7 +275,7 @@ var AkuruFili = map[string]string{
 	"ޖެ": "je",
 	"ޖޭ": "jey",
 	"ޖޮ": "jo",
-	"ޖޯ": "jou",
+	"ޖޯ": "joa",
 
 	"ޗަ": "cha",
 	"ޗާ": "chaa",
@@ -287,7 +287,7 @@ var AkuruFili = map[string]string{
 	"ޗެ": "che",
 	"ޗޭ": "chey",
 	"ޗޮ": "cho",
-	"ޗޯ": "chou",
+	"ޗޯ": "choa",
 
 	"ޙަ": "ha",
 	"ޙާ": "haa",
@@ -299,19 +299,19 @@ var AkuruFili = map[string]string{
 	"ޙެ": "he",
 	"ޙޭ": "hey",
 	"ޙޮ": "ho",
-	"ޙޯ": "hou",
+	"ޙޯ": "hoa",
 
-	"ަޚ": "kha",
-	"ާޚ": "khaa",
-	"ިޚ": "khi",
-	"ީޚ": "khee",
+	"ޚަ": "kha",
+	"ޚާ": "khaa",
+	"ޚި": "khi",
+	"ޚީ": "khee",
 	"ޚު": "khu",
-	"ޫޚ": "khoo",
-	"ްޚ": "kh",
-	"ެޚ": "khe",
-	"ޭޚ": "khey",
-	"ޮޚ": "kho",
-	"ޯޚ": "khou",
+	"ޚޫ": "khoo",
+	"ޚް": "kh",
+	"ޚެ": "khe",
+	"ޚޭ": "khey",
+	"ޚޮ": "kho",
+	"ޚޯ": "khoa",
 
 	"ޜަ": "za",
 	"ޜާ": "zaa",
@@ -323,7 +323,7 @@ var AkuruFili = map[string]string{
 	"ޜެ": "ze",
 	"ޜޭ": "zey",
 	"ޜޮ": "zo",
-	"ޜޯ": "zou",
+	"ޜޯ": "zoa",
 
 	"ޢަ": "a",
 	"ޢާ": "aa",
@@ -335,19 +335,19 @@ var AkuruFili = map[string]string{
 	"ޢެ": "e",
 	"ޢޭ": "ey",
 	"ޢޮ": "o",
-	"ޢޯ": "ou",
+	"ޢޯ": "oa",
 
-	"ަޣ": "gha",
-	"ާޣ": "ghaa",
-	"ިޣ": "ghi",
-	"ީޣ": "ghee",
-	"ުޣ": "ghu",
-	"ޫޣ": "ghoo",
-	"ްޣ": "gh",
-	"ެޣ": "ghe",
-	"ޭޣ": "ghey",
-	"ޮޣ": "gho",
-	"ޯޣ": "ghou",
+	"ޣަ": "gha",
+	"ޣާ": "ghaa",
+	"ޣި": "ghi",
+	"ޣީ": "ghee",
+	"ޣު": "ghu",
+	"ޣޫ": "ghoo",
+	"ޣް": "gh",
+	"ޣެ": "ghe",
+	"ޣޭ": "ghey",
+	"ޣޮ": "gho",
+	"ޣޯ": "ghoa",
 
 	"ޥަ": "va",
 	"ޥާ": "vaa",
@@ -359,19 +359,19 @@ var AkuruFili = map[string]string{
 	"ޥެ": "ve",
 	"ޥޭ": "vey",
 	"ޥޮ": "vo",
-	"ޥޯ": "vou",
+	"ޥޯ": "voa",
 
-	"ަޛ": "zha",
-	"ާޛ": "zhaa",
-	"ިޛ": "zhi",
-	"ީޛ": "zhee",
-	"ުޛ": "zhu",
-	"ޫޛ": "zhoo",
-	"ްޛ": "zh",
-	"ެޛ": "zhe",
-	"ޭޛ": "zhey",
-	"ޮޛ": "zho",
-	"ޯޛ": "zhou",
+	"ޛަ": "zha",
+	"ޛާ": "zhaa",
+	"ޛި": "zhi",
+	"ޛީ": "zhee",
+	"ޛު": "zhu",
+	"ޛޫ": "zhoo",
+	"ޛް": "zh",
+	"ޛެ": "zhe",
+	"ޛޭ": "zhey",
+	"ޛޮ": "zho",
+	"ޛޯ": "zhoa",
 
 	"ޠަ": "tha",
 	"ޠާ": "thaa",
@@ -383,19 +383,19 @@ var AkuruFili = map[string]string{
 	"ޠެ": "the",
 	"ޠޭ": "they",
 	"ޠޮ": "tho",
-	"ޠޯ": "thou",
+	"ޠޯ": "thoa",
 
-	"ަޡ": "dha",
-	"ާޡ": "dhaa",
-	"ިޡ": "dhi",
-	"ީޡ": "dhee",
-	"ުޡ": "dhu",
-	"ޫޡ": "dhoo",
-	"ްޡ": "dh",
-	"ެޡ": "dhe",
-	"ޭޡ": "dhey",
-	"ޮޡ": "dho",
-	"ޯޡ": "dhou",
+	"ޡަ": "dha",
+	"ޡާ": "dhaa",
+	"ޡި": "dhi",
+	"ޡީ": "dhee",
+	"ޡު": "dhu",
+	"ޡޫ": "dhoo",
+	"ޡް": "dh",
+	"ޡެ": "dhe",
+	"ޡޭ": "dhey",
+	"ޡޮ": "dho",
+	"ޡޯ": "dhoa",
 
 	"ޘަ": "tsa",
 	"ޘާ": "tsaa",
@@ -407,7 +407,7 @@ var AkuruFili = map[string]string{
 	"ޘެ": "tse",
 	"ޘޭ": "tsey",
 	"ޘޮ": "tso",
-	"ޘޯ": "tsou",
+	"ޘޯ": "tsoa",
 
 	"ޤަ": "ga",
 	"ޤާ": "gaa",
@@ -419,7 +419,7 @@ var AkuruFili = map[string]string{
 	"ޤެ": "ge",
 	"ޤޭ": "gey",
 	"ޤޮ": "go",
-	"ޤޯ": "gou",
+	"ޤޯ": "goa",
 
 	"ޞަ": "sa",
 	"ޞާ": "saa",
@@ -431,7 +431,7 @@ var AkuruFili = map[string]string{
 	"ޞެ": "se",
 	"ޞޭ": "sey",
 	"ޞޮ": "so",
-	"ޞޯ": "sou",
+	"ޞޯ": "soa",
 
 	"ޟަ": "dha",
 	"ޟާ": "dhaa",
@@ -443,7 +443,7 @@ var AkuruFili = map[string]string{
 	"ޟެ": "dhe",
 	"ޟޭ": "dhey",
 	"ޟޮ": "dho",
-	"ޟޯ": "dhou",
+	"ޟޯ": "dhoa",
 
 	"ޝަ": "sha",
 	"ޝާ": "shaa",
@@ -455,7 +455,7 @@ var AkuruFili = map[string]string{
 	"ޝެ": "she",
 	"ޝޭ": "shey",
 	"ޝޮ": "sho",
-	"ޝޯ": "shou",
+	"ޝޯ": "shoa",
 }
 
 var Akuru = map[string]string{
@@ -499,10 +499,6 @@ var Akuru = map[string]string{
 	"ޟ": "",
 	"ޝ": "",
 
-	// special thaana characters
 	"؟": "?",
 	"،": ",",
 }
-
-// const allThaanaRunes = "ހށނރބޅކއވމފދތލގޏސޑޒޓޔޕޖޗ" +
-// 	"ޙޚޜޢޣޥޛޠޡޘޤޞޟޝ" + "ަާިީުޫެޭޮޯ"
