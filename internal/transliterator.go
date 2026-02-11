@@ -38,7 +38,7 @@ func Transliterate(input string) string {
 				_, ok1 := Fili[runes[i-1]]
 				_, ok2 := Akuru[runes[i+1]]
 				if ok1 && ok2 {
-					result.WriteRune('n')
+					result.WriteString("n'")
 					i++
 					continue
 				}

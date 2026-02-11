@@ -19,7 +19,7 @@ var Akuru = map[rune]string{
 	'\u078C': "th",
 	'\u078D': "l",
 	'\u078E': "g",
-	'\u078F': "ny",
+	'\u078F': "gn",
 	'\u0790': "s",
 	'\u0791': "d",
 	'\u0792': "z",
@@ -29,20 +29,20 @@ var Akuru = map[rune]string{
 	'\u0796': "j",
 	'\u0797': "ch",
 
-	'\u0799': "h",
+	'\u0799': "h'",
 	'\u079A': "kh",
-	'\u079B': "zh",
-	'\u079C': "z",
-	'\u079D': "sh",
-	'\u079E': "s",
-	'\u079F': "dh",
-	'\u07A0': "th",
-	'\u07A1': "dh",
-	'\u0798': "ts",
-	'\u07A2': "",
+	'\u079B': "dh'",
+	// '\u079C': "z", not there in the official ruleset
+	'\u079D': "sh'",
+	'\u079E': "s'",
+	'\u079F': "l'",
+	'\u07A0': "t'",
+	'\u07A1': "z'",
+	'\u0798': "th'",
+	'\u07A2': "'",
 	'\u07A3': "gh",
-	'\u07A4': "g",
-	'\u07A5': "v",
+	'\u07A4': "q",
+	'\u07A5': "w",
 }
 
 var Fili = map[rune]string{
@@ -62,7 +62,7 @@ var SukunOverrides = map[rune]string{
 	'\u0781': "h",
 	'\u0787': "h",
 	'\u078C': "iy",
-	'\u078F': "nyaviyani sukun", // nyaviyani sukun doesn't exist in dhivehi - what to do here?
+	'\u078F': "", // nyaviyani sukun doesn't exist in dhivehi
 	'\u07A2': "u",
 }
 
