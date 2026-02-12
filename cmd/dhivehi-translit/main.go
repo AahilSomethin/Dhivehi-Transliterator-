@@ -19,6 +19,10 @@ import (
 //   dhivehi-translit.exe ދިވެހި ބަސް
 //   Output: dhivehi bas
 //
+//   # Transliterate from a text file:
+//   dhivehi-translit.exe input.txt
+//   Output: (transliterated contents of input.txt)
+//
 //   # Transliterate from stdin (pipe or interactive):
 //   echo ދިވެހި | dhivehi-translit.exe
 //   Output: dhivehi
@@ -32,8 +36,18 @@ func main() {
 	var input string
 
 	if len(os.Args) > 1 {
-		// Read from command-line arguments
-		input = strings.Join(os.Args[1:], " ")
+		// Check if the first argument is an existing file
+		if info, err := os.Stat(os.Args[1]); err == nil && !info.IsDir() {
+			data, err := os.ReadFile(os.Args[1])
+			if err != nil {
+				fmt.Fprintf(os.Stderr, "Error reading file: %v\n", err)
+				os.Exit(1)
+			}
+			input = strings.TrimSpace(string(data))
+		} else {
+			// Treat arguments as direct text input
+			input = strings.Join(os.Args[1:], " ")
+		}
 	} else {
 		// Read from stdin
 		scanner := bufio.NewScanner(os.Stdin)

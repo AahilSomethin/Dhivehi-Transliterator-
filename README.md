@@ -7,7 +7,7 @@ A command-line tool and Go library for transliterating Dhivehi (Thaana script) t
 - Transliterates Thaana consonants and vowels to their Latin equivalents
 - Handles sukun (ް), nasalization, gemination, and glottal stops
 - Supports Arabic-derived dotted letters (ޝ, ޤ, ޢ, etc.)
-- Works as a CLI tool (arguments or stdin) or as a Go library
+- Works as a CLI tool (arguments, file input, or stdin) or as a Go library
 - Zero external dependencies — standard library only
 
 ## Examples
@@ -48,6 +48,15 @@ dhivehi-translit ދިވެހި
 dhivehi-translit ދިވެހި ބަސް
 # Output: dhivehi bas
 ```
+
+Transliterate from a text file:
+
+```bash
+dhivehi-translit input.txt
+# Output: (transliterated contents of input.txt)
+```
+
+If the first argument is a path to an existing file, its contents are read and transliterated. Otherwise, arguments are treated as direct text input.
 
 Or pipe text via stdin:
 
