@@ -37,9 +37,9 @@ func TestTransliteration(t *testing.T) {
 		{"ޢަމަލް", "a'mal"},
 		{"ޢާއިލާ", "a'ailaa"},
 		{"މުޢީނު", "mue'enu"},
-		{"އިޝްޤް", "i'sh'q"},
-		{"މަސްށޫދް", "maso'odh"},
-		{"ޢުންވާން", "u'nwaan"},
+		{"ޢިޝްޤް", "i'sh'q"},
+		{"މަސްޢޫދް", "maso'odh"},
+		{"ޢުންވާން", "u'nvaan"},
 		{"ނަލަ", "nala"},
 		{"ހަމަ", "hama"},
 		{"ބާރު", "baaru"},
@@ -85,7 +85,7 @@ func TestTransliteration(t *testing.T) {
 		{"މިލްކު", "milku"},
 		{"ރަމްޒު", "ramzu"},
 		{"މާފަންނު", "maafannu"},
-		{"ވިސްނުމެއް ނެތި ކޮށްފި ކަމަކުން އެންމެ ފަހަރަކު ދޭހުގައި ގިސްލަމުން ހިތި ކަރުނަ އޮއްސަންޖެހިދެޔޭ ޢުމުރަށް މުޅީން", "visnumeh nethi koffi kamakun emme faharaku dheyhugai gislamun hithi karuna ossan jehi dheyey u'murah mulheen"},
+		{"ވިސްނުމެއް ނެތި ކޮށްފި ކަމަކުން އެންމެ ފަހަރަކު ދޭހުގައި ގިސްލަމުން ހިތި ކަރުނަ އޮއްސަން ޖެހި ދެޔޭ ޢުމުރަށް މުޅީން", "visnumeh nethi koffi kamakun emme faharaku dheyhugai gislamun hithi karuna ossan jehi dheyey u'murah mulheen"},
 	}
 
 	for _, tt := range tests {

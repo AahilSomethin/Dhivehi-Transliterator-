@@ -2,6 +2,7 @@ package transliterator
 
 const Sukun = '\u07B0'
 const Noonu = '\u0782'
+const Ainu = '\u07A2'
 
 var Akuru = map[rune]string{
 	'\u0780': "h",
@@ -59,8 +60,6 @@ var Fili = map[rune]string{
 }
 
 var SukunOverrides = map[rune]string{
-	'\u0781': "h",
-	'\u0787': "h",
 	'\u078C': "iy",
 	'\u078F': "", // nyaviyani sukun doesn't exist in dhivehi
 	'\u07A2': "u",
