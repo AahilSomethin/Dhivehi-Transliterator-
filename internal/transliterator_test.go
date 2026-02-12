@@ -39,7 +39,7 @@ func TestTransliteration(t *testing.T) {
 		{"މުޢީނު", "mue'enu"},
 		{"ޢިޝްޤް", "i'sh'q"},
 		{"މަސްޢޫދް", "maso'odh"},
-		{"ޢުންވާން", "u'nvaan"},
+		{"ޢުންޥާން", "u'nwaan"},
 		{"ނަލަ", "nala"},
 		{"ހަމަ", "hama"},
 		{"ބާރު", "baaru"},

@@ -3,6 +3,9 @@ package transliterator
 const Sukun = '\u07B0'
 const Noonu = '\u0782'
 const Ainu = '\u07A2'
+const Alifu = '\u0787'
+const Shaviyani = '\u0781'
+const Raa = '\u0783'
 
 var Akuru = map[rune]string{
 	'\u0780': "h",

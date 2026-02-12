@@ -4,10 +4,6 @@ import (
 	"strings"
 )
 
-const Alifu = '\u0787'
-const Shaviyani = '\u0781'
-const Raa = '\u0783'
-
 func Transliterate(input string) string {
 	runes := []rune(input)
 	var result strings.Builder
