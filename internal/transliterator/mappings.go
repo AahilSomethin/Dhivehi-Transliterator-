@@ -2,7 +2,7 @@ package transliterator
 
 var ConsonantMap = map[rune]string{
     'ހ': "h",   
-    'ށ': "sh",   // Reset to standard
+    'ށ': "sh",  
     'ނ': "n",   
     'ރ': "r",   
     'ބ': "b",   
@@ -12,7 +12,7 @@ var ConsonantMap = map[rune]string{
     'ވ': "v",   
     'މ': "m",   
     'ފ': "f",   
-    'ދ': "dh",   // Reset to standard
+    'ދ': "dh", 
     'ތ': "th",  
     'ލ': "l",   
     'ގ': "g",   
@@ -35,7 +35,7 @@ var ConsonantMap = map[rune]string{
     'ޝ': "sh",  
     'ޞ': "s",   
     'ޟ': "d",   
-    'ޠ': "t",   
+    'ޠ': "th",   
     'ޡ': "z",   
     'ޢ': "'",   
     'ޣ': "gh",
