@@ -1,7 +1,5 @@
 package transliterator
 
-// Options configures v2 transliteration features.
-// All flags default to false for v1 compatibility.
 type Options struct {
 	Gemination          bool // consonant + sukun + same consonant → doubled output
 	SuppressGlottalStop bool // suppress apostrophe between adjacent vowels
