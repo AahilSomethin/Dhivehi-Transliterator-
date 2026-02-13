@@ -15,7 +15,28 @@ func main() {
 			fmt.Fprintf(os.Stderr, "error: %v\n", err)
 			os.Exit(1)
 		}
-		fmt.Print(transliterator.Transliterate(string(input)))
+
+		fmt.Println(transliterator.Transliterate(string(input)))
+
+		// i := 0
+		// // fatherTime := time.Duration(0)
+		// manOfTheHour := time.Duration(0)
+
+		// var start time.Time
+		// for i < 1 {
+		// 	// start = time.Now()
+		// 	// transliterator.TransliterateV2(string(input))
+		// 	// fatherTime += time.Since(start)
+
+		// 	start = time.Now()
+		// 	transliterator.Transliterate(string(input))
+		// 	manOfTheHour += time.Since(start)
+
+		// 	i++
+		// }
+		// // fmt.Println("Transliteration without growing took an average of: ", fatherTime/1)
+		// fmt.Println("Transliteration with growing took an average of: ", manOfTheHour/1)
+
 	} else {
 		scanner := bufio.NewScanner(os.Stdin)
 		for scanner.Scan() {

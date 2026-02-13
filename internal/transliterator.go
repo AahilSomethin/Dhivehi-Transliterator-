@@ -8,6 +8,8 @@ func Transliterate(input string) string {
 	runes := []rune(input)
 	var result strings.Builder
 
+	result.Grow(len(runes))
+
 	i := 0
 	for i < len(runes) {
 		r := runes[i]
