@@ -40,6 +40,7 @@ func main() {
 		fmt.Println(transliterate(string(input)))
 	} else {
 		scanner := bufio.NewScanner(os.Stdin)
+		fmt.Println("Start typing in thaana...")
 		for scanner.Scan() {
 			fmt.Println(transliterate(scanner.Text()))
 		}
