@@ -2,45 +2,46 @@ package main
 
 import (
 	"bufio"
+	"flag"
 	"fmt"
 	"os"
 
-	transliterator "dhivehi-translit/internal"
+	translit1 "dhivehi-translit/internal/translit1"
+	translit2 "dhivehi-translit/internal/translit2"
 )
 
 func main() {
-	if len(os.Args) > 1 {
-		input, err := os.ReadFile(os.Args[1])
+	v1 := flag.Bool("v1", false, "use v1 transliterator")
+	v2 := flag.Bool("v2", false, "use v2 transliterator")
+	flag.Parse()
+
+	if !*v1 && !*v2 {
+		fmt.Fprintln(os.Stderr, "error: specify -v1 or -v2")
+		flag.Usage()
+		os.Exit(1)
+	}
+	if *v1 && *v2 {
+		fmt.Fprintln(os.Stderr, "error: specify only one of -v1 or -v2")
+		os.Exit(1)
+	}
+
+	transliterate := translit2.Transliterate
+	if *v1 {
+		transliterate = translit1.Transliterate
+	}
+
+	args := flag.Args()
+	if len(args) > 0 {
+		input, err := os.ReadFile(args[0])
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "error: %v\n", err)
 			os.Exit(1)
 		}
-
-		fmt.Println(transliterator.Transliterate(string(input)))
-
-		// i := 0
-		// // fatherTime := time.Duration(0)
-		// manOfTheHour := time.Duration(0)
-
-		// var start time.Time
-		// for i < 1 {
-		// 	// start = time.Now()
-		// 	// transliterator.TransliterateV2(string(input))
-		// 	// fatherTime += time.Since(start)
-
-		// 	start = time.Now()
-		// 	transliterator.Transliterate(string(input))
-		// 	manOfTheHour += time.Since(start)
-
-		// 	i++
-		// }
-		// // fmt.Println("Transliteration without growing took an average of: ", fatherTime/1)
-		// fmt.Println("Transliteration with growing took an average of: ", manOfTheHour/1)
-
+		fmt.Println(transliterate(string(input)))
 	} else {
 		scanner := bufio.NewScanner(os.Stdin)
 		for scanner.Scan() {
-			fmt.Println(transliterator.Transliterate(scanner.Text()))
+			fmt.Println(transliterate(scanner.Text()))
 		}
 		if err := scanner.Err(); err != nil {
 			fmt.Fprintf(os.Stderr, "error: %v\n", err)
