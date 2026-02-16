@@ -2,85 +2,50 @@ package main
 
 import (
 	"bufio"
+	"flag"
 	"fmt"
 	"os"
-	"strings"
 
-	transliterator "dhivehi-translit/transit1"
+	translit1 "dhivehi-translit/internal/translit1"
+	translit2 "dhivehi-translit/internal/translit2"
 )
 
-// CLI Usage Examples:
-//
-//   # Transliterate from command-line arguments:
-//   dhivehi-translit.exe ދިވެހި
-//   Output: dhivehi
-//
-//   # Transliterate multiple words:
-//   dhivehi-translit.exe ދިވެހި ބަސް
-//   Output: dhivehi bas
-//
-//   # Transliterate from a text file:
-//   dhivehi-translit.exe input.txt
-//   Output: (transliterated contents of input.txt)
-//
-//   # Transliterate from stdin (pipe or interactive):
-//   echo ދިވެހި | dhivehi-translit.exe
-//   Output: dhivehi
-//
-//   # Interactive mode (type input, press Enter):
-//   dhivehi-translit.exe
-//   > ދިވެހި
-//   dhivehi
-
 func main() {
-	var input string
+	v1 := flag.Bool("v1", false, "use v1 transliterator")
+	v2 := flag.Bool("v2", false, "use v2 transliterator")
+	flag.Parse()
 
-	if len(os.Args) > 1 {
-		// Check if the first argument is an existing file
-		if info, err := os.Stat(os.Args[1]); err == nil && !info.IsDir() {
-			data, err := os.ReadFile(os.Args[1])
-			if err != nil {
-				fmt.Fprintf(os.Stderr, "Error reading file: %v\n", err)
-				os.Exit(1)
-			}
-			input = strings.TrimSpace(string(data))
-		} else {
-			// Treat arguments as direct text input
-			input = strings.Join(os.Args[1:], " ")
+	if !*v1 && !*v2 {
+		fmt.Fprintln(os.Stderr, "error: specify -v1 or -v2")
+		flag.Usage()
+		os.Exit(1)
+	}
+	if *v1 && *v2 {
+		fmt.Fprintln(os.Stderr, "error: specify only one of -v1 or -v2")
+		os.Exit(1)
+	}
+
+	transliterate := translit2.Transliterate
+	if *v1 {
+		transliterate = translit1.Transliterate
+	}
+
+	args := flag.Args()
+	if len(args) > 0 {
+		input, err := os.ReadFile(args[0])
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "error: %v\n", err)
+			os.Exit(1)
 		}
+		fmt.Println(transliterate(string(input)))
 	} else {
-		// Read from stdin
 		scanner := bufio.NewScanner(os.Stdin)
-		if scanner.Scan() {
-			input = scanner.Text()
+		for scanner.Scan() {
+			fmt.Println(transliterate(scanner.Text()))
 		}
 		if err := scanner.Err(); err != nil {
-			fmt.Fprintf(os.Stderr, "Error reading input: %v\n", err)
+			fmt.Fprintf(os.Stderr, "error: %v\n", err)
 			os.Exit(1)
 		}
 	}
-
-	if input == "" {
-		return
-	}
-
-	// Transliterate using v1 default behavior
-	result := transliterator.Transliterate(input)
-	fmt.Println(result)
 }
-
-
-
-//With command-line arguments:
-// go run ./cmd/ ދިވެހި
-
-//or
-
-//go run ./cmd/ "ދިވެހި ބަހުގެ ދުވަހުން ދުވަހަށް ބޭނުންތަކަށް"
-
-//With stdin (pipe):
-//echo ދިވެހި | go run ./cmd/
-
-//To run tests:
-//go test ./transit1/
-
