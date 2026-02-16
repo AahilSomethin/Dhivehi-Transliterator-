@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	"dhivehi-translit/internal/transliterator"
+	transliterator "dhivehi-translit/transit1"
 )
 
 // CLI Usage Examples:
@@ -72,15 +72,15 @@ func main() {
 
 
 //With command-line arguments:
-// go run ./cmd/dhivehi-translit/ ދިވެހި
+// go run ./cmd/ ދިވެހި
 
 //or
 
-//go run ./cmd/dhivehi-translit/ "ދިވެހި ބަހުގެ ދުވަހުން ދުވަހަށް ބޭނުންތަކަށް"
+//go run ./cmd/ "ދިވެހި ބަހުގެ ދުވަހުން ދުވަހަށް ބޭނުންތަކަށް"
 
 //With stdin (pipe):
-//echo ދިވެހި | go run ./cmd/dhivehi-translit/
+//echo ދިވެހި | go run ./cmd/
 
 //To run tests:
-//go test ./...
+//go test ./transit1/
 
