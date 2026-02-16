@@ -1,14 +1,15 @@
 # dhivehi-translit
 
-A command-line tool and Go library for transliterating Dhivehi (Thaana script) to Latin script, following the Male Latin romanization standard.
+A command-line tool and Go library for transliterating Dhivehi (Thaana script) to Latin script, following the Male' Latin romanization standard.
 
 ## Features
 
-- Transliterates Thaana consonants and vowels to their Latin equivalents
+- Two transliteration engines (`v1` and `v2`) with different approaches
 - Handles sukun (ް), nasalization, gemination, and glottal stops
 - Supports Arabic-derived dotted letters (ޝ, ޤ, ޢ, etc.)
-- Works as a CLI tool (arguments, file input, or stdin) or as a Go library
+- Works as a CLI tool (file input or stdin) or as a Go library
 - Zero external dependencies — standard library only
+- Fast performance with array-based lookups and pre-allocated buffers
 
 ## Examples
 
@@ -29,61 +30,64 @@ Requires **Go 1.22** or later.
 
 ```bash
 # Install globally
-go install ./cmd/dhivehi-translit/
+go install ./cmd/...
 
 # Or build a binary
-go build -o dhivehi-translit ./cmd/dhivehi-translit/
+go build -o dhivehi-translit ./cmd/
 ```
 
 ## Usage
 
 ### CLI
 
-Pass Thaana text as arguments:
+A version flag (`-v1` or `-v2`) is required. The `v1` engine is the original rule-based implementation; `v2` is an optimized rewrite with additional features like configurable gemination and glottal stop suppression.
+
+**Transliterate a file:**
 
 ```bash
-dhivehi-translit ދިވެހި
-# Output: dhivehi
-
-dhivehi-translit ދިވެހި ބަސް
-# Output: dhivehi bas
+dhivehi-translit -v2 input.txt
 ```
 
-Transliterate from a text file:
+**Pipe text via stdin:**
 
 ```bash
-dhivehi-translit input.txt
-# Output: (transliterated contents of input.txt)
-```
-
-If the first argument is a path to an existing file, its contents are read and transliterated. Otherwise, arguments are treated as direct text input.
-
-Or pipe text via stdin:
-
-```bash
-echo ދިވެހި | dhivehi-translit
+echo ދިވެހި | dhivehi-translit -v2
 # Output: dhivehi
 ```
 
-Running without arguments enters interactive mode — type a line and press Enter to see the transliteration.
+**Interactive mode** — run without a file argument to enter line-by-line mode:
+
+```bash
+dhivehi-translit -v1
+```
 
 ### Library
 
+**v1 — simple transliteration:**
+
 ```go
-import "dhivehi-translit/internal/transliterator"
+import translit1 "dhivehi-translit/internal/translit1"
 
-// Basic transliteration
-result := transliterator.Transliterate("ދިވެހި") // "dhivehi"
-
-// With options (gemination, suppress glottal stop)
-opts := transliterator.Options{
-    Gemination:         true,
-    SuppressGlottalStop: true,
-}
-result := transliterator.TransliterateWithOptions("ބައްބަ", opts) // "babba"
+result := translit1.Transliterate("ދިވެހި") // "dhivehi"
 ```
 
-#### Options
+**v2 — with options:**
+
+```go
+import translit2 "dhivehi-translit/internal/translit2"
+
+// Basic
+result := translit2.Transliterate("ދިވެހި") // "dhivehi"
+
+// With options
+opts := translit2.Options{
+    Gemination:          true,
+    SuppressGlottalStop: true,
+}
+result := translit2.TransliterateWithOptions("ބައްބަ", opts) // "babba"
+```
+
+#### Options (v1 only)
 
 | Option                | Default | Description                                                        |
 | --------------------- | ------- | ------------------------------------------------------------------ |
@@ -96,14 +100,11 @@ result := transliterator.TransliterateWithOptions("ބައްބަ", opts) // "babb
 go test ./...
 ```
 
-or
-
-go run ./cmd/dhivehi-translit/ "(what you want to write in Dhivehi)"
-
 Benchmarks:
 
 ```bash
-go test -bench Benchmark -benchmem ./internal/transliterator/
+go test -bench Benchmark -benchmem ./internal/translit1/
+go test -bench Benchmark -benchmem ./internal/translit2/
 ```
 
 ## Project Structure
@@ -111,18 +112,17 @@ go test -bench Benchmark -benchmem ./internal/transliterator/
 ```
 dhivehi-translit/
 ├── cmd/
-│   └── dhivehi-translit/
-│       └── main.go                # CLI entry point
+│   └── main.go                    # CLI entry point (flag parsing, I/O)
 ├── docs/                          # Reference PDFs
 ├── internal/
-│   └── transliterator/
-│       ├── mappings.go            # Consonant & vowel maps
-│       ├── rules.go               # Special-case rules
-│       ├── state.go               # Transliteration state
-│       ├── tokenizer.go           # Rune classification helpers
-│       ├── transliterator.go      # Core transliteration logic
-│       └── transliterator_test.go # Tests & benchmarks
-├── samples/                       # Sample input/output files
+│   ├── translit1/
+│   │   ├── engine.go              # v1 transliteration logic
+│   │   ├── mappings.go            # v1 consonant & vowel maps
+│   │   └── transliterator_test.go # v1 tests & benchmarks
+│   └── translit2/
+│       ├── transliterator.go      # v2 transliteration logic
+│       ├── mappings.go            # v2 character maps & overrides
+│       └── transliterator_test.go # v2 tests & benchmarks
 ├── go.mod
 └── README.md
 ```
