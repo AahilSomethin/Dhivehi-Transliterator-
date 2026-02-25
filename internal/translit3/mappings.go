@@ -67,7 +67,7 @@ var consonantData = map[rune]string{
 
 	'\u0798': "th'",
 	'\u0799': "h'",
-	'\u079A': "kh",
+	'\u079A': "kh'", // خ (khaa) per Qawaaidu: Kh'
 	'\u079B': "dh'",
 	'\u079D': "sh'",
 	'\u079E': "s'",
@@ -84,7 +84,7 @@ var consonantData = map[rune]string{
 var consonantNormData = map[rune]string{
 	'\u0798': "th",
 	'\u0799': "h",
-	'\u079A': "kh",
+	'\u079A': "kh'",
 	'\u079B': "dh",
 	'\u079D': "sh",
 	'\u079E': "s",
@@ -133,7 +133,7 @@ var akuruNameData = map[rune]string{
 	'\u078D': "laamu",
 	'\u078E': "gaafu",
 	'\u078F': "nyaviyani",
-	'\u0790': "seynu",
+	'\u0790': "seenu",
 	'\u0791': "daviyani",
 	'\u0792': "zaviyani",
 	'\u0793': "taviyani",

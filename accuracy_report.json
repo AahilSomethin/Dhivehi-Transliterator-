@@ -1,0 +1,29 @@
+{
+  "total_cases": 79,
+  "versions": {
+    "translit1": {
+      "exact_match_pct": 64.55696202531645,
+      "exact_matches": 51,
+      "total_character_edit_distance": 50,
+      "avg_character_edit_distance": 0.6329113924050633
+    },
+    "translit2": {
+      "exact_match_pct": 98.73417721518987,
+      "exact_matches": 78,
+      "total_character_edit_distance": 1,
+      "avg_character_edit_distance": 0.012658227848101266
+    },
+    "translit3": {
+      "exact_match_pct": 100,
+      "exact_matches": 79,
+      "total_character_edit_distance": 0,
+      "avg_character_edit_distance": 0
+    },
+    "translit4": {
+      "exact_match_pct": 98.73417721518987,
+      "exact_matches": 78,
+      "total_character_edit_distance": 1,
+      "avg_character_edit_distance": 0.012658227848101266
+    }
+  }
+}

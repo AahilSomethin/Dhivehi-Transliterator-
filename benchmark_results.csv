@@ -1,0 +1,5 @@
+version,ns_per_op,allocs_per_op,bytes_per_op
+translit1,806726,2,385035
+translit2,1061001,2,327680
+translit3,869545,2,385024
+translit4,237341,1,245761

@@ -44,6 +44,7 @@ func TestTransliteration(t *testing.T) {
 		{"ބާރު", "baaru"},
 		{"ނާރު", "naaru"},
 		{"ނިޝާން", "nish'aan"},
+		{"ޚަލް", "kh'al"},   // خ (khaa) per Qawaaidu: Kh'
 		{"ފިލި", "fili"},
 		{"ބައްޔެއް", "bayyeh"},
 		{"ބައްޕަ", "bappa"},
